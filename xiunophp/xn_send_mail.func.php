@@ -3369,6 +3369,7 @@ function xn_send_mail($smtp, $username, $email, $subject, $message, $charset = '
 	}
 	$charset = 'GBK';
 	*/
+    
 	$mail             = new PHPMailer();
 	//$mail->PluginDir = FRAMEWORK_PATH.'lib/';
 	$mail->IsSMTP(); // telling the class to use SMTP
@@ -3383,6 +3384,7 @@ function xn_send_mail($smtp, $username, $email, $subject, $message, $charset = '
 	$mail->Password   = $smtp['pass'];        // SMTP account password
 	$mail->Timeout    = 5;	// 
 	$mail->CharSet    = $charset;
+    $mail->SMTPSecure = 'ssl';  #设置ssl连接方式。
 	
 	$mail->Encoding   = 'base64';
 	
